@@ -8,7 +8,7 @@ except(IOError, ImportError):
 
 setup(
    name='numerize',
-   version='0.7',
+   version='0.8',
    description='Convert large numbers into readable numbers for humans.',
    long_description=long_description,
    long_description_content_type='text/markdown',
