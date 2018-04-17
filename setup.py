@@ -1,13 +1,17 @@
 from setuptools import setup
 
-with open("README.md", 'r') as f:
-    long_description = f.read()
+try:
+    import pypandoc
+    long_description = pypandoc.convert('README.md', 'rst')
+except(IOError, ImportError):
+    long_description = open('README.md').read()
 
 setup(
    name='numerize',
-   version='0.5',
+   version='0.7',
    description='Convert large numbers into readable numbers for humans.',
    long_description=long_description,
+   long_description_content_type='text/markdown',
    author='David Sa',
    author_email='davidsa03@gmail.com',
    packages=['numerize'],  #same as name
