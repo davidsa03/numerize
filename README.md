@@ -19,6 +19,7 @@ Similar to what Twitter and Instagram use for large follower counts.
 | 1000000000000  | **1T**  |
 | 1500000000000  | **1.5T**  |
 | 21324314       | **21.32M**|
+| -21324314       | **-21.32M**|
 
 ## Installation
 
