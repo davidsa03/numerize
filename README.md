@@ -7,6 +7,19 @@
 Numerize is a Python (2 and 3) library for converting large numbers into readable strings.
 Similar to what Twitter and Instagram use for large follower counts.
 
+| Number | Numerized |
+|:------:|:---------:|
+| 1  | **1**  |
+| 1000  | **1K**  |
+| 1500  | **1.5K**  |
+| 1000000  | **1M**  |
+| 1500000  | **1.5M**  |
+| 1000000000  | **1B**  |
+| 1500000000  | **1.5B**  |
+| 1000000000000  | **1T**  |
+| 1500000000000  | **1.5T**  |
+| 21324314       | **21.32M**|
+
 ## Installation
 
 ```
