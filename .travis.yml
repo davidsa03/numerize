@@ -7,7 +7,7 @@ python:
 # command to install dependencies
 install:
   - pip install .
-script: python test.py
+script: python numerize/test.py
 branches:
   only:
     - master
