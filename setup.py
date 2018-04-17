@@ -5,7 +5,7 @@ with open("README.md", 'r') as f:
 
 setup(
    name='numerize',
-   version='0.4',
+   version='0.5',
    description='Convert large numbers into readable numbers for humans.',
    long_description=long_description,
    author='David Sa',
