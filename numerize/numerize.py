@@ -29,30 +29,33 @@ def numerize(n):
     1,000,000,000 -> 1B
     1,000,000,000,000 -> 1T
     '''
-    n = Decimal(n)
+    is_negative_string = ""
+    if n < 0:
+        is_negative_string = "-"
+    n = abs(Decimal(n))
     if n < 1000:
-        return str(drop_zero(round_num(n)))
+        return is_negative_string + str(drop_zero(round_num(n)))
     elif n >= 1000 and n < 1000000:
         if n % 1000 == 0:
-            return str(int(n / 1000)) + "K"
+            return is_negative_string + str(int(n / 1000)) + "K"
         else:
             n = n / 1000
-            return str(drop_zero(round_num(n))) + "K"
+            return is_negative_string + str(drop_zero(round_num(n))) + "K"
     elif n >= 1000000 and n < 1000000000:
         if n % 1000000 == 0:
-            return str(int(n / 1000000)) + "M"
+            return is_negative_string + str(int(n / 1000000)) + "M"
         else:
             n = n / 1000000
-            return str(drop_zero(round_num(n))) + "M"
+            return is_negative_string + str(drop_zero(round_num(n))) + "M"
     elif n >= 1000000000 and n < 1000000000000:
         if n % 1000000000 == 0:
-            return str(int(n / 1000000000)) + "B"
+            return is_negative_string + str(int(n / 1000000000)) + "B"
         else:
             n = n / 1000000000
-            return str(drop_zero(round_num(n))) + "B"
+            return is_negative_string + str(drop_zero(round_num(n))) + "B"
     elif n >= 1000000000000 and n < 1000000000000000:
         if n % 1000000000000 == 0:
-            return str(int(n / 1000000000000)) + "T"
+            return is_negative_string + str(int(n / 1000000000000)) + "T"
         else:
             n = n / 1000000000000
-            return str(drop_zero(round_num(n))) + "T"
+            return is_negative_string + str(drop_zero(round_num(n))) + "T"
