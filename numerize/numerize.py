@@ -59,3 +59,5 @@ def numerize(n):
         else:
             n = n / 1000000000000
             return is_negative_string + str(drop_zero(round_num(n))) + "T"
+    else:
+        return is_negative_string + str(n)

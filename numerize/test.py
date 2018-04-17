@@ -59,6 +59,10 @@ class TestNumberMethods(unittest.TestCase):
         self.assertEqual(numerize(1.111), '1.11')
         self.assertEqual(numerize(-1.111), '-1.11')
 
+    def testBounds(self):
+        self.assertEqual(numerize(1000000000000000), '1000000000000000')
+        self.assertEqual(numerize(-1000000000000000), '-1000000000000000')
+
 def main():
     unittest.main()
 
