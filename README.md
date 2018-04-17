@@ -40,7 +40,7 @@ This will convert large numbers like 1234567.12 into 1.23M
 - Python >= 2.7 or >= 3.4
 
 ## Contributing
-[How to contribute](https://github.com/davidsa03/numerize/blob/master/README.md)
+[How to contribute](https://github.com/davidsa03/numerize/blob/master/CONTRIBUTING.md)
 
 ## Testing
 
