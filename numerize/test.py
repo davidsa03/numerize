@@ -59,6 +59,13 @@ class TestNumberMethods(unittest.TestCase):
         self.assertEqual(numerize(1.111), '1.11')
         self.assertEqual(numerize(-1.111), '-1.11')
 
+    def testDecimalParam(self):
+        self.assertEqual(numerize(1), '1')
+        self.assertEqual(numerize(1.23), '1.23')
+        self.assertEqual(numerize(1.23, 3), '1.23')
+        self.assertEqual(numerize(1.234, 3), '1.234')
+        self.assertEqual(numerize(1.2345, 4), '1.2345')
+
     def testBounds(self):
         self.assertEqual(numerize(1000000000000000), '1000000000000000')
         self.assertEqual(numerize(-1000000000000000), '-1000000000000000')

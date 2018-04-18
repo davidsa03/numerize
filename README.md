@@ -29,10 +29,14 @@ $ pip install numerize
 
 ## Usage
 
+numerize(number_to_numerize, decimal_places_to_round[optional])
+
 ```
 >>> from numerize import numerize
 >>> numerize(1234567.12)
 '1.23M'
+>>> numerize(12134.123, 3)
+'12.134K'
 ```
 This will convert large numbers like 1234567.12 into 1.23M
 
