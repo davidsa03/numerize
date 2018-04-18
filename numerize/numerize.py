@@ -67,6 +67,3 @@ def numerize(n, decimals=2):
             return is_negative_string + str(drop_zero(round_num(n, decimals))) + "T"
     else:
         return is_negative_string + str(n)
-
-if __name__ == '__main__':
-    print(numerize(12134.123, 3))
