@@ -1,1 +1,1 @@
-from numerize.numerize import *
+from numerize import *
