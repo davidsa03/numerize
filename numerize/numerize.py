@@ -41,25 +41,25 @@ def numerize(n, decimals=2):
     n = abs(Decimal(n))
     if n < 1000:
         return is_negative_string + str(drop_zero(round_num(n, decimals)))
-    elif n >= 1000 and n < 1000000:
+    elif 1000000 > n >= 1000:
         if n % 1000 == 0:
             return is_negative_string + str(int(n / 1000)) + "K"
         else:
             n = n / 1000
             return is_negative_string + str(drop_zero(round_num(n, decimals))) + "K"
-    elif n >= 1000000 and n < 1000000000:
+    elif 1000000000 > n >= 1000000:
         if n % 1000000 == 0:
             return is_negative_string + str(int(n / 1000000)) + "M"
         else:
             n = n / 1000000
             return is_negative_string + str(drop_zero(round_num(n, decimals))) + "M"
-    elif n >= 1000000000 and n < 1000000000000:
+    elif 1000000000000 > n >= 1000000000:
         if n % 1000000000 == 0:
             return is_negative_string + str(int(n / 1000000000)) + "B"
         else:
             n = n / 1000000000
             return is_negative_string + str(drop_zero(round_num(n, decimals))) + "B"
-    elif n >= 1000000000000 and n < 1000000000000000:
+    elif 1000000000000000 > n >= 1000000000000:
         if n % 1000000000000 == 0:
             return is_negative_string + str(int(n / 1000000000000)) + "T"
         else:
