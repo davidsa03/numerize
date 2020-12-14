@@ -53,9 +53,9 @@ $ python numerize/test.py
 ```
 ## FAQ
 **Q**
-What if I want to convert alphanumeric strings to an integer? i.e from 1k to 1000
+- What if I want to convert alphanumeric strings to an integer? i.e from 1k to 1000
 **A**
-Use _numify_, the package can be found [here.](https://github.com/boadley/numify)
+- Use _numify_, the package can be found [here.](https://github.com/boadley/numify)
 
 ## License
 MIT licensed.
