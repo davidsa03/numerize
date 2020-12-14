@@ -52,10 +52,10 @@ This will convert large numbers like 1234567.12 into 1.23M
 $ python numerize/test.py
 ```
 ## FAQ
-**Q**
-- What if I want to convert alphanumeric strings to an integer? i.e from 1k to 1000
-**A**
-- Use _numify_, the package can be found [here.](https://github.com/boadley/numify)
+- **Q**
+ What if I want to convert alphanumeric strings to an integer? i.e from 1k to 1000
+- **A**
+ Use _numify_, the package can be found [here.](https://github.com/boadley/numify)
 
 ## License
 MIT licensed.
