@@ -25,7 +25,6 @@ def numerize(n):
         try:
             if n >= sci_expr[x] and n < sci_expr[x+1]:
                 sufix = sufixes[x]
-                print(n)
                 if n >= 1e3:
                     num = str(round_num(n/sci_expr[x]))
                 else:
