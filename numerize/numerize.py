@@ -1,69 +1,35 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-import sys
 from decimal import Decimal
 
-def round_num(n, decimals):
-    '''
-    Params:
-    n - number to round
-    decimals - number of decimal places to round to
-    Round number to 2 decimal places
-    For example:
-    10.0 -> 10
-    10.222 -> 10.22
-    '''
-    return n.to_integral() if n == n.to_integral() else round(n.normalize(), decimals)
+def round_num(n):
+    n=Decimal(n)
+    return n.to_integral() if n == n.to_integral() else round(n.normalize(), 2)
 
-def drop_zero(n):
-    '''
-    Drop trailing 0s
-    For example:
-    10.100 -> 10.1
-    '''
-    n = str(n)
-    return n.rstrip('0').rstrip('.') if '.' in n else n
-
-def numerize(n, decimals=2):
-    '''
-    Params:
-    n - number to be numerized
-    decimals - number of decimal places to round to
-    Converts numbers like:
-    1,000 -> 1K
-    1,000,000 -> 1M
-    1,000,000,000 -> 1B
-    1,000,000,000,000 -> 1T
-    '''
-    is_negative_string = ""
-    if n < 0:
-        is_negative_string = "-"
-    n = abs(Decimal(n))
-    if n < 1000:
-        return is_negative_string + str(drop_zero(round_num(n, decimals)))
-    elif n >= 1000 and n < 1000000:
-        if n % 1000 == 0:
-            return is_negative_string + str(int(n / 1000)) + "K"
-        else:
-            n = n / 1000
-            return is_negative_string + str(drop_zero(round_num(n, decimals))) + "K"
-    elif n >= 1000000 and n < 1000000000:
-        if n % 1000000 == 0:
-            return is_negative_string + str(int(n / 1000000)) + "M"
-        else:
-            n = n / 1000000
-            return is_negative_string + str(drop_zero(round_num(n, decimals))) + "M"
-    elif n >= 1000000000 and n < 1000000000000:
-        if n % 1000000000 == 0:
-            return is_negative_string + str(int(n / 1000000000)) + "B"
-        else:
-            n = n / 1000000000
-            return is_negative_string + str(drop_zero(round_num(n, decimals))) + "B"
-    elif n >= 1000000000000 and n < 1000000000000000:
-        if n % 1000000000000 == 0:
-            return is_negative_string + str(int(n / 1000000000000)) + "T"
-        else:
-            n = n / 1000000000000
-            return is_negative_string + str(drop_zero(round_num(n, decimals))) + "T"
-    else:
-        return is_negative_string + str(n)
+def numerize(n):
+    #60 sufixes
+    sufixes = [ "", "K", "M", "B", "T", "Qa", "Qu", "S", "Oc", "No", 
+                "D", "Ud", "Dd", "Td", "Qt", "Qi", "Se", "Od", "Nd","V", 
+                "Uv", "Dv", "Tv", "Qv", "Qx", "Sx", "Ox", "Nx", "Tn", "Qa",
+                "Qu", "S", "Oc", "No", "D", "Ud", "Dd", "Td", "Qt", "Qi",
+                "Se", "Od", "Nd", "V", "Uv", "Dv", "Tv", "Qv", "Qx", "Sx",
+                "Ox", "Nx", "Tn", "x", "xx", "xxx", "X", "XX", "XXX", "END"] 
+    
+    sci_expr = [1e0, 1e3, 1e6, 1e9, 1e12, 1e15, 1e18, 1e21, 1e24, 1e27, 
+                1e30, 1e33, 1e36, 1e39, 1e42, 1e45, 1e48, 1e51, 1e54, 1e57, 
+                1e60, 1e63, 1e66, 1e69, 1e72, 1e75, 1e78, 1e81, 1e84, 1e87, 
+                1e90, 1e93, 1e96, 1e99, 1e102, 1e105, 1e108, 1e111, 1e114, 1e117, 
+                1e120, 1e123, 1e126, 1e129, 1e132, 1e135, 1e138, 1e141, 1e144, 1e147, 
+                1e150, 1e153, 1e156, 1e159, 1e162, 1e165, 1e168, 1e171, 1e174, 1e177]
+    minus_buff = n
+    n=abs(n)
+    for x in range(len(sci_expr)):
+        try:
+            if n >= sci_expr[x] and n < sci_expr[x+1]:
+                sufix = sufixes[x]
+                print(n)
+                if n >= 1e3:
+                    num = str(round_num(n/sci_expr[x]))
+                else:
+                    num = str(n)
+                return num + sufix if minus_buff > 0 else "-" + num + sufix
+        except IndexError:
+            print("You've reached the end")
