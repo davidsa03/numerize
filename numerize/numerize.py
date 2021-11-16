@@ -1,8 +1,8 @@
 from decimal import Decimal
 
-def round_num(n):
+def round_num(n, decimal=2):
     n=Decimal(n)
-    return n.to_integral() if n == n.to_integral() else round(n.normalize(), 2)
+    return n.to_integral() if n == n.to_integral() else round(n.normalize(), decimal)
 
 def numerize(n):
     #60 sufixes
