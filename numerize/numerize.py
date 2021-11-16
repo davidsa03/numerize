@@ -4,7 +4,7 @@ def round_num(n, decimal=2):
     n=Decimal(n)
     return n.to_integral() if n == n.to_integral() else round(n.normalize(), decimal)
 
-def numerize(n):
+def numerize(n, decimal=2):
     #60 sufixes
     sufixes = [ "", "K", "M", "B", "T", "Qa", "Qu", "S", "Oc", "No", 
                 "D", "Ud", "Dd", "Td", "Qt", "Qi", "Se", "Od", "Nd","V", 
@@ -26,7 +26,7 @@ def numerize(n):
             if n >= sci_expr[x] and n < sci_expr[x+1]:
                 sufix = sufixes[x]
                 if n >= 1e3:
-                    num = str(round_num(n/sci_expr[x]))
+                    num = str(round_num(n/sci_expr[x], decimal))
                 else:
                     num = str(n)
                 return num + sufix if minus_buff > 0 else "-" + num + sufix
