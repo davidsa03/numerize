@@ -8,11 +8,11 @@ except(IOError, ImportError):
 
 setup(
    name='numerize',
-   version='0.12',
+   version='0.13',
    description='Convert large numbers into readable numbers for humans.',
    long_description=long_description,
    long_description_content_type='text/markdown',
-   author='David Sa',
+   author='David Sa & Filip Kostecki',
    author_email='davidsa03@gmail.com',
    packages=['numerize'],  #same as name
    url='https://github.com/davidsa03/numerize',
