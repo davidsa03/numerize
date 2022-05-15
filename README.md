@@ -32,7 +32,7 @@ $ pip install numerize
 numerize(number_to_numerize, decimal_places_to_round[optional])
 
 ```
->>> from numerize import numerize
+>>> from numerize.numerize import numerize
 >>> numerize(1234567.12)
 '1.23M'
 >>> numerize(12134.123, 3)
